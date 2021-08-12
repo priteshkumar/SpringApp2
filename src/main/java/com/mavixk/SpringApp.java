@@ -26,6 +26,7 @@ public class SpringApp {
             //get the additionsService bean
             MathService mathService = (MathService) applicationContext.getBean("additionService");
     mathService.operate(3, 4);
+
   }
 
 }
