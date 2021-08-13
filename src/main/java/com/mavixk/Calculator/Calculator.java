@@ -1,13 +1,16 @@
 package com.mavixk.Calculator;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Calculator {
 
   //DI via field injection
+  //use qualifier for selecting AdditionSe
   @Autowired
+  @Qualifier("additionService")
   private MathService mathService;
 
   public MathService getMathService() {
