@@ -1,5 +1,6 @@
 package com.mavixk.Calculator;
 
+import com.mavixk.Calculator.ui.OutputScreenUI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
@@ -32,23 +33,26 @@ public class CalcAppConstructorDI {
     this.divideService = divideService;
   }
 
-  public void compute(String cmd, int x, int y) {
+  public void compute(String cmd, int x, int y,OutputScreenUI outputScreenUI) {
     //System.out.println(cmd);
+    int res = 0;
     switch (cmd) {
       case "add":
-        addService.operate(x, y);
+        res = addService.operate(x, y);
         break;
       case "sub":
-        subtractService.operate(x, y);
+        res = subtractService.operate(x, y);
         break;
       case "mul":
-        multiplyService.operate(x, y);
+        res = multiplyService.operate(x, y);
         break;
       case "div":
-        divideService.operate(x, y);
+        res = divideService.operate(x, y);
         break;
       default:
         throw new RuntimeException("illegal calculator cmd");
     }
+    //show output on screen component
+    outputScreenUI.showOutput(res);
   }
 }

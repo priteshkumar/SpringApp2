@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 public class DivisionService implements MathService{
 
   @Override
-  public void operate(int x, int y) {
-    System.out.println(x /y);
+  public int operate(int x, int y) {
+    return x/y;
   }
 }
